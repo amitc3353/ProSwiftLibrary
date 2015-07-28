@@ -1,0 +1,6 @@
+framework module Pods_ProSwiftLibrary {
+  umbrella header "Pods-ProSwiftLibrary-umbrella.h"
+
+  export *
+  module * { export * }
+}
