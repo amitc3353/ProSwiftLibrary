@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 import ObjectMapper
 
 class PLBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -16,18 +15,18 @@ class PLBooksViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var booksTableView: UITableView!
     var bookResults = [Book]()
     let kBookTableViewCellIdentifier:NSString = "bookCell"
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.loadBooks()
     }
-
+    
     func setupBooksTableView() {
         self.booksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: kBookTableViewCellIdentifier as String)
     }
     
     func loadBooks() {
-        Alamofire.request(.GET, "http://prolific-interview.herokuapp.com/55a917e9b529b80009b7fe9b/books")
+        Alamofire.request(Router.GetBooks)
             .responseJSON { _, _, JSON, _ in
                 self.bookResults = Mapper<Book>().mapArray(JSON)!
                 self.booksTableView.reloadData()
@@ -46,4 +45,14 @@ class PLBooksViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let bookDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PLBookDetailViewController") as? PLBookDetailViewController
+        bookDetailViewController?.bookURLEndpoint = self.bookResults[indexPath.row].url
+        self.navigationController?.pushViewController(bookDetailViewController!, animated: true)
+        self.booksTableView.deselectRowAtIndexPath(self.booksTableView.indexPathForSelectedRow()!, animated: true)
+    }
+    
 }
+
+
