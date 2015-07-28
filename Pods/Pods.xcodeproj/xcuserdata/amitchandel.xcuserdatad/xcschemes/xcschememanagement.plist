@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ObjectMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ProSwiftLibrary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E05DC8DC4B3AED3970D9684C3904CCA</key>
+		<key>24D3B973D1AA8B68D840405C8D1A2317</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4AB265FA87AF3D155DAF8099B2C9653B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9CA4912426D4D257EBECE0E695C9D9A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B9A04D3C9B208813656510FDA8ADAE02</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD256F52A89A58B49647095EEAB5CB8D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

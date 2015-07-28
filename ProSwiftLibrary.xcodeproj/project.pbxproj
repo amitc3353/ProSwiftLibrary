@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A2E6635088E16DD8D755730D /* Pods_ProSwiftLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FC4DFD9A638A311E260277 /* Pods_ProSwiftLibrary.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C13B02C21B67084C00D7C222 /* PLBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13B02C11B67084C00D7C222 /* PLBooksViewController.swift */; };
+		C13B02C51B670DD200D7C222 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13B02C41B670DD200D7C222 /* Book.swift */; };
 		C1CA3E431B67005D0018E2AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA3E421B67005D0018E2AA /* AppDelegate.swift */; };
 		C1CA3E451B67005D0018E2AA /* PLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA3E441B67005D0018E2AA /* PLHomeViewController.swift */; };
 		C1CA3E481B67005D0018E2AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CA3E461B67005D0018E2AA /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		30E5C6C7F3422B0E854EFA02 /* Pods-ProSwiftLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProSwiftLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProSwiftLibrary/Pods-ProSwiftLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		50FC4DFD9A638A311E260277 /* Pods_ProSwiftLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProSwiftLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13B02C11B67084C00D7C222 /* PLBooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLBooksViewController.swift; sourceTree = "<group>"; };
+		C13B02C41B670DD200D7C222 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = Model/Book.swift; sourceTree = "<group>"; };
 		C1CA3E3D1B67005D0018E2AA /* ProSwiftLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProSwiftLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1CA3E411B67005D0018E2AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1CA3E421B67005D0018E2AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C13B02C31B670D8E00D7C222 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C13B02C41B670DD200D7C222 /* Book.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		C1CA3E341B67005D0018E2AA = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		C1CA3E3F1B67005D0018E2AA /* ProSwiftLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				C13B02C31B670D8E00D7C222 /* Model */,
 				C1CA3E421B67005D0018E2AA /* AppDelegate.swift */,
 				C1CA3E441B67005D0018E2AA /* PLHomeViewController.swift */,
 				C13B02C11B67084C00D7C222 /* PLBooksViewController.swift */,
@@ -290,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C13B02C51B670DD200D7C222 /* Book.swift in Sources */,
 				C1CA3E451B67005D0018E2AA /* PLHomeViewController.swift in Sources */,
 				C1CA3E431B67005D0018E2AA /* AppDelegate.swift in Sources */,
 				C13B02C21B67084C00D7C222 /* PLBooksViewController.swift in Sources */,

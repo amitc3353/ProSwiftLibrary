@@ -7,20 +7,31 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import ObjectMapper
 
 class PLBooksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var booksTableView: UITableView!
-    var bookResults: [AnyObject]! = []
+    var bookResults = [Book]()
     let kBookTableViewCellIdentifier:NSString = "bookCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupBooksTableView()
+        self.loadBooks()
     }
 
     func setupBooksTableView() {
         self.booksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: kBookTableViewCellIdentifier as String)
+    }
+    
+    func loadBooks() {
+        Alamofire.request(.GET, "http://prolific-interview.herokuapp.com/55a917e9b529b80009b7fe9b/books")
+            .responseJSON { _, _, JSON, _ in
+                self.bookResults = Mapper<Book>().mapArray(JSON)!
+                self.booksTableView.reloadData()
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,6 +40,9 @@ class PLBooksViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.booksTableView.dequeueReusableCellWithIdentifier(kBookTableViewCellIdentifier as String) as! UITableViewCell
+
+        cell.textLabel?.text = self.bookResults[indexPath.row].title
+        cell.detailTextLabel?.text = self.bookResults[indexPath.row].author
         
         return cell
     }

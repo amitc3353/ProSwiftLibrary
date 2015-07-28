@@ -6,6 +6,7 @@ target 'ProSwiftLibrary' do
 
 pod 'Alamofire', '~> 1.3'
 pod 'SwiftyJSON', '~> 2.2.0'
+pod 'ObjectMapper', '~> 0.14'
 
 end
 
