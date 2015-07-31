@@ -73,16 +73,16 @@ class PLAddBookViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-            if (textField === bookTitleTextField) {
-                authorTextField.becomeFirstResponder()
-            } else if (textField === authorTextField) {
-                publisherTextField.becomeFirstResponder()
-            } else if (textField === publisherTextField) {
-                categoriesTextField.becomeFirstResponder()
-            } else {
-                textField.resignFirstResponder()
-            }
+        if (textField === bookTitleTextField) {
+            authorTextField.becomeFirstResponder()
+        } else if (textField === authorTextField) {
+            publisherTextField.becomeFirstResponder()
+        } else if (textField === publisherTextField) {
+            categoriesTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
             
-            return true
+        return true
     }
 }
