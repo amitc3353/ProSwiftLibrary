@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 
 enum Router: URLRequestConvertible {
-    static let baseURLString = "http://prolific-interview.herokuapp.com/55a917e9b529b80009b7fe9b"
     
     case PostBook([String: AnyObject])
     case GetBooks
@@ -49,7 +48,7 @@ enum Router: URLRequestConvertible {
     }
     
     var URLRequest: NSURLRequest {
-        let URL:NSURL! = NSURL(string: Router.baseURLString)
+        let URL:NSURL! = NSURL(string: kBaseURL)
         let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method.rawValue
         
@@ -62,8 +61,4 @@ enum Router: URLRequestConvertible {
             return mutableURLRequest
         }
     }
-}
-
-class PLAPIManager: NSObject {
-   
 }

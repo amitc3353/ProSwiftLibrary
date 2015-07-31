@@ -14,31 +14,36 @@ class PLBooksViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var booksTableView: UITableView!
     var bookResults = [Book]()
-    let kBookTableViewCellIdentifier:NSString = "bookCell"
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.loadBooks()
     }
     
+// MARK: Private Methods
+    
     func setupBooksTableView() {
-        self.booksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: kBookTableViewCellIdentifier as String)
+        self.booksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: kBookCellIdentifier as String)
     }
     
     func loadBooks() {
+        self.showLoadingIndicator()
         Alamofire.request(Router.GetBooks)
             .responseJSON { _, _, JSON, _ in
                 self.bookResults = Mapper<Book>().mapArray(JSON)!
                 self.booksTableView.reloadData()
+                self.hideLodingIndicator()
         }
     }
+    
+// MARK: TableViewDelegate Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.bookResults.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.booksTableView.dequeueReusableCellWithIdentifier(kBookTableViewCellIdentifier as String) as! UITableViewCell
+        var cell:UITableViewCell = self.booksTableView.dequeueReusableCellWithIdentifier(kBookCellIdentifier as String) as! UITableViewCell
 
         cell.textLabel?.text = self.bookResults[indexPath.row].title
         cell.detailTextLabel?.text = self.bookResults[indexPath.row].author
@@ -47,12 +52,11 @@ class PLBooksViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let bookDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PLBookDetailViewController") as? PLBookDetailViewController
+        let bookDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier(kBookDetailViewControllerIdentifier) as? PLBookDetailViewController
         bookDetailViewController?.bookURLEndpoint = self.bookResults[indexPath.row].url
         self.navigationController?.pushViewController(bookDetailViewController!, animated: true)
         self.booksTableView.deselectRowAtIndexPath(self.booksTableView.indexPathForSelectedRow()!, animated: true)
     }
-    
 }
 
 

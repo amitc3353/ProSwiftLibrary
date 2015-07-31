@@ -15,17 +15,8 @@ class PLAddBookViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var publisherTextField: UITextField!
     @IBOutlet weak var categoriesTextField: UITextField!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    @IBAction func submitButtonClicked(sender: AnyObject) {
-        if(self.isRequiredFieldsEmpty()) {
-            println("empty")
-        } else {
-            self.addBook()
-        }
-    }
+    
+// MARK: Private Methods
     
     func addBook() {
         let parameters = [
@@ -35,14 +26,50 @@ class PLAddBookViewController: UIViewController, UITextFieldDelegate {
             "categories": self.categoriesTextField.text
         ]
         
-        Alamofire.request(Router.PostBook(parameters)).responseString { _, _, string, _ in
-            println(string)
+        Alamofire.request(Router.PostBook(parameters))
+            .response { request, response, data, error in
+                if(error == nil) {
+                    self.showAlert("Added successfully.")
+                    self.resetTextFieldContent()
+                } else {
+                    self.showAlert("Something went wrong. Please try again.")
+                }
         }
     }
     
     func isRequiredFieldsEmpty() -> Bool {
         return (self.bookTitleTextField.text.isEmpty && self.authorTextField.text.isEmpty)
     }
+    
+    func showAlert(message:String) {
+        let alertController = UIAlertController(title: "Alert", message:
+            message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func resetTextFieldContent() {
+        self.authorTextField.text = ""
+        self.bookTitleTextField.text = ""
+        self.publisherTextField.text = ""
+        self.categoriesTextField.text = ""
+    }
+    
+    // MARK: IBAction Methods
+    
+    @IBAction func submitButtonClicked(sender: AnyObject) {
+        if(self.isRequiredFieldsEmpty()) {
+            self.showAlert("Please enter the mandatory 'Author' and 'Title' fields.")
+        } else {
+            self.addBook()
+        }
+    }
+    
+    @IBAction func resetButtonTapped(sender: AnyObject) {
+        self.resetTextFieldContent()
+    }
+    
+// MARK: TextField Delegate Methods
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         

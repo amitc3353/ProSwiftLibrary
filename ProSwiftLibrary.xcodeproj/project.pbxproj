@@ -13,7 +13,8 @@
 		C196F7D41B67C97C00F39911 /* PLBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C196F7D31B67C97C00F39911 /* PLBookDetailViewController.swift */; };
 		C196F7D71B67CE7A00F39911 /* PLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C196F7D61B67CE7A00F39911 /* PLConstants.swift */; };
 		C196F7D91B67DAC500F39911 /* PLAddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C196F7D81B67DAC500F39911 /* PLAddBookViewController.swift */; };
-		C196F7DC1B6807E800F39911 /* PLAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C196F7DB1B6807E800F39911 /* PLAPIManager.swift */; };
+		C196F7DC1B6807E800F39911 /* PLRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C196F7DB1B6807E800F39911 /* PLRequestManager.swift */; };
+		C196F7DE1B68316100F39911 /* PLLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C196F7DD1B68316100F39911 /* PLLoadingIndicator.swift */; };
 		C1CA3E431B67005D0018E2AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA3E421B67005D0018E2AA /* AppDelegate.swift */; };
 		C1CA3E451B67005D0018E2AA /* PLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA3E441B67005D0018E2AA /* PLHomeViewController.swift */; };
 		C1CA3E481B67005D0018E2AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CA3E461B67005D0018E2AA /* Main.storyboard */; };
@@ -41,7 +42,8 @@
 		C196F7D31B67C97C00F39911 /* PLBookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLBookDetailViewController.swift; sourceTree = "<group>"; };
 		C196F7D61B67CE7A00F39911 /* PLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLConstants.swift; sourceTree = "<group>"; };
 		C196F7D81B67DAC500F39911 /* PLAddBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLAddBookViewController.swift; sourceTree = "<group>"; };
-		C196F7DB1B6807E800F39911 /* PLAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PLAPIManager.swift; path = Shared/PLAPIManager.swift; sourceTree = "<group>"; };
+		C196F7DB1B6807E800F39911 /* PLRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PLRequestManager.swift; path = Shared/PLRequestManager.swift; sourceTree = "<group>"; };
+		C196F7DD1B68316100F39911 /* PLLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLLoadingIndicator.swift; sourceTree = "<group>"; };
 		C1CA3E3D1B67005D0018E2AA /* ProSwiftLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProSwiftLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1CA3E411B67005D0018E2AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1CA3E421B67005D0018E2AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				C196F7D61B67CE7A00F39911 /* PLConstants.swift */,
-				C196F7DB1B6807E800F39911 /* PLAPIManager.swift */,
+				C196F7DB1B6807E800F39911 /* PLRequestManager.swift */,
+				C196F7DD1B68316100F39911 /* PLLoadingIndicator.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -327,8 +330,9 @@
 				C196F7D91B67DAC500F39911 /* PLAddBookViewController.swift in Sources */,
 				C13B02C21B67084C00D7C222 /* PLBooksViewController.swift in Sources */,
 				C196F7D41B67C97C00F39911 /* PLBookDetailViewController.swift in Sources */,
-				C196F7DC1B6807E800F39911 /* PLAPIManager.swift in Sources */,
+				C196F7DC1B6807E800F39911 /* PLRequestManager.swift in Sources */,
 				C196F7D71B67CE7A00F39911 /* PLConstants.swift in Sources */,
+				C196F7DE1B68316100F39911 /* PLLoadingIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

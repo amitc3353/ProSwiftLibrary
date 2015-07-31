@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+// URL Constants
+
+ let kBaseURL = "http://prolific-interview.herokuapp.com/55bb80ad5684c5000901d1a9"
+
+// TableView Cell constant identifiers
+
+ let kBookCellIdentifier = "bookCell"
+
+// ViewController constant identifiers
+
+ let kBookDetailViewControllerIdentifier = "PLBookDetailViewController"
